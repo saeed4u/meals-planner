@@ -1,7 +1,8 @@
 import React from "react";
 import FavoritesScreen from "../screens/FavoriteScreen";
+import MealDetailsScreen from "../screens/MealDetailScreen";
 import { createStackNavigator } from "@react-navigation/stack";
-import  screenOptions  from "../constants/screenOptions";
+import screenOptions from "../constants/screenOptions";
 
 const { Screen, Navigator } = createStackNavigator();
 
@@ -12,6 +13,11 @@ const Favorites = () => {
         name="Favorites"
         options={{ title: "Favorite Meals" }}
         component={FavoritesScreen}
+      />
+      <Screen
+        name="FavoriteMealDetails"
+        options={{ title: "Favorite Meal Detail" }}
+        component={MealDetailsScreen}
       />
     </Navigator>
   );

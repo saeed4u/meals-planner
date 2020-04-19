@@ -34,7 +34,6 @@ const MealItem = ({ data, onSelect }: any) => {
             <Text>{data.duration}m</Text>
             <Text>{data.complexity.toUpperCase()}</Text>
             <Text>{data.affordability.toUpperCase()}</Text>
-            <Text>{data.duration}m</Text>
           </View>
         </View>
       </TouchableCmp>
@@ -45,11 +44,12 @@ const MealItem = ({ data, onSelect }: any) => {
 const styles = StyleSheet.create({
   mealItem: {
     height: 200,
-    width: "100%",
     backgroundColor: "#e6e6e6",
     borderRadius: 10,
     overflow: "hidden",
     marginTop: 15,
+    marginLeft: 15,
+    marginRight: 15,
   },
   row: {
     flexDirection: "row",

@@ -2,15 +2,10 @@ import React from "react";
 
 import { CATEGORIES } from "../data/dummy-data";
 
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  FlatList,
-} from "react-native";
+import { StyleSheet } from "react-native";
 import { ICategory } from "../models/category";
 import CategoryGridItem from "../components/CategoryGridItem";
+import MealList from "../components/MealList";
 
 const renderGridITem = (data: ICategory, navigate: Function) => {
   return <CategoryGridItem data={data} navigate={navigate} />;
@@ -18,9 +13,11 @@ const renderGridITem = (data: ICategory, navigate: Function) => {
 
 const CategoriesScreen = (props: any) => {
   return (
-    <FlatList
+    <MealList
       data={CATEGORIES}
-      renderItem={({ item }) => renderGridITem(item, props.navigation.navigate)}
+      renderItem={({ item }: any) =>
+        renderGridITem(item, props.navigation.navigate)
+      }
       numColumns={2}
     />
   );

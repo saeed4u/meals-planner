@@ -4,17 +4,8 @@ import { View, StyleSheet, FlatList } from "react-native";
 import { MEALS } from "../data/dummy-data";
 import { IMeal } from "../models/meal";
 import MealItem from "../components/MealItem";
-
-const renderMealItem = (data: IMeal, navigate: Function) => {
-  return (
-    <MealItem
-      data={data}
-      onSelect={() =>
-        navigate("MealDetail", { title: data.title, id: data.id })
-      }
-    />
-  );
-};
+import MealList from "../components/MealList";
+import renderMealItem from "../constants/utils";
 
 const CategoryMealsScreen = ({ route, navigation }: any) => {
   const { id } = route.params;
@@ -22,10 +13,12 @@ const CategoryMealsScreen = ({ route, navigation }: any) => {
 
   return (
     <View style={styles.screen}>
-      <FlatList
+      <MealList
         style={styles.mealList}
         data={meals}
-        renderItem={({ item }) => renderMealItem(item, navigation.navigate)}
+        renderItem={({ item }: any) =>
+          renderMealItem(item, navigation.navigate)
+        }
       />
     </View>
   );
@@ -36,8 +29,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingLeft: 15,
-    paddingRight: 15,
     marginBottom: 15,
   },
   mealList: {
