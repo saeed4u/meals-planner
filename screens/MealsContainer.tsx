@@ -1,12 +1,12 @@
-import React from "react";
-import MealCategoryScreen from "../screens/CategoryMealsScreen";
-import CategoriesScreen from "../screens/CategoriesScreen";
-import MealDetailScreen from "../screens/MealDetailScreen";
+import React, { useLayoutEffect } from "react";
+import MealCategoryScreen from "./CategoryMealsScreen";
+import CategoriesScreen from "./CategoriesScreen";
+import MealDetailScreen from "./MealDetailScreen";
 import { createStackNavigator } from "@react-navigation/stack";
 import screenOptions from "../constants/screenOptions";
 const { Screen, Navigator } = createStackNavigator();
 
-const Meals = () => {
+const Meals = ({ navigation }: any) => {
   return (
     <Navigator initialRouteName="Categories" screenOptions={screenOptions}>
       <Screen

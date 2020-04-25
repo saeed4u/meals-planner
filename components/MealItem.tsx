@@ -9,6 +9,8 @@ import {
   ImageBackground,
 } from "react-native";
 
+import DefaultText from "../components/DefaultText";
+
 const MealItem = ({ data, onSelect }: any) => {
   let TouchableCmp: any = TouchableOpacity;
   if (Platform.OS === "android" && Platform.Version >= 21) {
@@ -31,9 +33,9 @@ const MealItem = ({ data, onSelect }: any) => {
             </ImageBackground>
           </View>
           <View style={{ ...styles.row, ...styles.mealDetails }}>
-            <Text>{data.duration}m</Text>
-            <Text>{data.complexity.toUpperCase()}</Text>
-            <Text>{data.affordability.toUpperCase()}</Text>
+            <DefaultText>{data.duration}m</DefaultText>
+            <DefaultText>{data.complexity.toUpperCase()}</DefaultText>
+            <DefaultText>{data.affordability.toUpperCase()}</DefaultText>
           </View>
         </View>
       </TouchableCmp>

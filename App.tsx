@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 
-import MealsAndFavTabContainer from "./containers/MealsAndFavTabContainer";
+import MainDrawerNavigation from "./containers/MainDrawerNavigation";
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -21,9 +21,7 @@ const App = () => {
       />
     );
   }
-  return (
-      <MealsAndFavTabContainer />
-  );
+  return <MainDrawerNavigation />;
 };
 
 export default App;
