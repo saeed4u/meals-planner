@@ -12,4 +12,5 @@ export interface IMeal {
     isVegan: boolean
     isVegetarian: boolean
     isLactoseFree: boolean
+    isFavorite?: boolean
 }

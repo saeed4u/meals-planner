@@ -1,15 +1,16 @@
 import React from "react";
-
-import { View, StyleSheet, FlatList } from "react-native";
-import { MEALS } from "../data/dummy-data";
-import { IMeal } from "../models/meal";
-import MealItem from "../components/MealItem";
+import {useSelector} from 'react-redux';
+import { View, StyleSheet } from "react-native";
 import MealList from "../components/MealList";
 import renderMealItem from "../constants/utils";
+import {IMeal} from "../models/meal";
 
 const CategoryMealsScreen = ({ route, navigation }: any) => {
   const { id } = route.params;
-  const meals = MEALS.filter((meal) => meal.categoryIds.includes(id));
+
+  const availableMeals = useSelector((state: any) => state.meals.filteredMeals)
+
+  const meals = availableMeals.filter((meal: IMeal) => meal.categoryIds.includes(id));
 
   return (
     <View style={styles.screen}>

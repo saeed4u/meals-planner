@@ -84,7 +84,7 @@ export const MEALS: Array<IMeal> = [
         isGluttenFree: false,
         isVegan: true,
         isVegetarian: true,
-        isLactoseFree: true
+        isLactoseFree: true,
     },
     {
         id: 'm2',
