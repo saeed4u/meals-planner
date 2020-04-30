@@ -3,6 +3,8 @@ import React, { useLayoutEffect, useState } from "react";
 import { View, Text, StyleSheet, Switch, Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import colors from "../constants/colors";
+import {useDispatch} from "react-redux";
+import {setFilters} from "../store/actions/meals";
 
 const FilterSwitch = ({ value, onValueChange, title }: any) => {
   return (
@@ -42,6 +44,8 @@ const FiltersScreen = ({ navigation }: any) => {
     });
   });
 
+  const dispatch = useDispatch();
+
   const [isGluttenFree, setIsGluttenFree] = useState(false);
   const [isLactoseFree, setIsLactoseFree] = useState(false);
   const [isVegan, setIsVegan] = useState(false);
@@ -54,7 +58,7 @@ const FiltersScreen = ({ navigation }: any) => {
       isVegan,
       isVegetarian,
     };
-    console.log(appliedFilters);
+    dispatch(setFilters(appliedFilters));
   };
 
   return (
